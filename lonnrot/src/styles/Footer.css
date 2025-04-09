@@ -1,6 +1,21 @@
 .footer {
-    position:absolute;
-    left: 0;
-    bottom: 0;
-    right: 0;
+  width: 100%;
+  background-color: #7caadf9a;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 14px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  /* position: absolute; */
+  position: relative;
+  bottom: 0;
+  /* left: 0;
+  margin-top: auto; */
   }
+
+  .footer p {
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  

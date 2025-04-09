@@ -1,22 +1,34 @@
 import React from 'react'
-import Logo from "../assets/lonnrotLogo.jpg";
+// import Logo from "../assets/lonnrotLogo.jpg";
 import { Link } from 'react-router-dom'
 import '../styles/Navbar.css'
 
 function Navbar() {
+  const [isOpen, setIsOpen] = React.useState(false)
+
   return (
     <div className='navbar'>
       <div className='leftSide'>
-      <img src={Logo} />
       <div>
-        <h1>PROJEKTI LÖNNROT</h1>
-        <h4>VAPAITA E-KIRJOJA KAIKILLE</h4>
+        <Link to="/">
+        <h1 className='title'>PROJEKTI LÖNNROT</h1>
+        </Link>
+        <h4 className='subtitle'>Vapaita e-kirjoja kaikille</h4>
         </div>
       </div>
       <div className='rightSide'>
-        <Link to="/"> Kotisivu </Link>
-        <Link to="/kirjailijat"> Kirjailijoiden mukaan ryhmiteltynä </Link>
-        <Link to="/valmistuminen"> Valmistumisjärjestyksessä </Link>
+        <div className='dropdown'>
+          <button onClick={() => setIsOpen(!isOpen)} className='dropbtn'>Kirjat</button>
+          {isOpen && (
+            <div className='dropdown-content'>
+              <Link to="/kirjailijat"> Kirjailijan mukaan </Link>
+              <Link to="/valmistuminen"> Valm. vuoden mukaan </Link>
+            </div>
+          )}
+        </div>
+        <Link to="/contact">
+          <button className='contactBtn'>Ota yhteyttä</button>
+        </Link>
       </div>
     </div>
   )

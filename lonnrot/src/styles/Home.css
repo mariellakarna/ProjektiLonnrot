@@ -1,3 +1,34 @@
-.home p {
+/* .home p {
     width: 50%;
+} */
+
+body {
+    background-color: #94b8e7;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.home {
+    padding: 20px;
+}
+
+.contentContainer {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.leftSide, .rightSide {
+    flex: 1;
+}
+
+.leftSide h3, .rightSide h3 {
+    font-size: 24px;
+    color: #244177;
+    margin-bottom: 10px;
+}
+
+.leftSide p, .rightSide p {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
 }
