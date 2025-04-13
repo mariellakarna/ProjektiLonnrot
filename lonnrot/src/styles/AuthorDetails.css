@@ -1,0 +1,26 @@
+.author-details {
+  padding: 20px;
+  background-color: #f4f4f4;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.author-details h1 {
+  color: #244177;
+  margin-bottom: 10px;
+}
+
+.author-details h2 {
+  color: #1b335c;
+  margin-bottom: 10px;
+}
+
+.author-details ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.author-details li {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 5px;
+}
