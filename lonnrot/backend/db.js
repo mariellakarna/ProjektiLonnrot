@@ -1,19 +1,31 @@
 
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
+//const mongoose = require('mongoose');
 //const { MongoClient } = require('mongodb');
 
+//uri vaihdettava tietokannan osoitteeseen
 const uri = "mongodb+srv://TestUser:test@kirjastoclusteri.k7xh5ll.mongodb.net/?retryWrites=true&w=majority&appName=KirjastoClusteri"
 
+export async function connectDB() {
+  try {
+    await mongoose.connect(uri, { dbName: "Lonnrot" });
+    console.log('MongoDB connected');
+  } catch (error) {
+    console.error('MongoDB connection error:', error);
+    process.exit(1);
+  }
+}
 
-const connectDB = async () => {
+
+/* const connectDB = async () => {
     try {
-      await mongoose.connect(uri);
+      await mongoose.connect(uri, { dbName: "Lonnrot"});
       console.log('MongoDB connected');
     } catch (error) {
       console.error('MongoDB connection error:', error);
       process.exit(1);
     }
-  };
+  }; */
 /* async function connectDB() {
 
   const client = new MongoClient(uri);
@@ -112,4 +124,6 @@ async function connectDB() {
     await client.close();
   }
 } */
-module.exports = connectDB;
+
+// oettu pois package.json muokkaamisen type: module jälkeen
+// module.exports = connectDB;
