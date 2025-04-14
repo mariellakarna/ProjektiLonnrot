@@ -1,3 +1,54 @@
+
+const mongoose = require('mongoose');
+//const { MongoClient } = require('mongodb');
+
+const uri = "mongodb+srv://TestUser:test@kirjastoclusteri.k7xh5ll.mongodb.net/?retryWrites=true&w=majority&appName=KirjastoClusteri"
+
+
+const connectDB = async () => {
+    try {
+      await mongoose.connect(uri);
+      console.log('MongoDB connected');
+    } catch (error) {
+      console.error('MongoDB connection error:', error);
+      process.exit(1);
+    }
+  };
+/* async function connectDB() {
+
+  const client = new MongoClient(uri);
+
+  try {
+    // connect to the MongoDB cluster
+    await client.connect();
+
+    //make the appropriate DB calls
+    await listDatabases(client);
+  }catch (error) {
+    console.log("mentiin erroriin")
+    //console.error('MongoDB connection error:', error);
+    process.exit();
+  }
+  finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
+  }
+
+}
+
+connectDB().catch(console.error);
+
+async function listDatabases(client) {
+  databasesList = await client.db().admin().listDatabases();
+
+  console.log("Databases:");
+  databasesList.databases.forEach(db => console.log(` - ${db.name}`));
+} */
+
+
+
+
+
 /* require('dotenv').config();
 const mongoose = require('mongoose');
 
@@ -21,7 +72,7 @@ const connectDB = async () => {
 module.exports = connectDB; */
 
 
-const { MongoClient } = require('mongodb');
+/* const { MongoClient } = require('mongodb');
 const uri = "mongodb+srv://LonrotProkkis:gR1KNaIj6sIxBI9N@cluster0.mongodb.net/Lonnrot?retryWrites=true&w=majority";
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
@@ -36,14 +87,14 @@ async function connectDB() {
     // kysely kokoelmasta, haetaan tiettyä kirjaa määritetyn nimen mukaan
 
 
-    FIXME 
-    * etsi ratkaisu tuoda kirjan nimi frontendistä
-    * ja etsi kirja sen mukaan
-    const titleToFind = "etsitään tähän ratkaisu"; // kirjan nimi, jota etsitään
-    const query = { title: titleToFind }; // kysely, joka etsii kirjaa nimeltä
-    const book = await collectionName.findOne(query); // etsitään kirja kokoelmasta
+    // FIXME 
+    //* etsi ratkaisu tuoda kirjan nimi frontendistä
+    //* ja etsi kirja sen mukaan
+    //const titleToFind = "etsitään tähän ratkaisu"; // kirjan nimi, jota etsitään
+    //const query = { title: titleToFind }; // kysely, joka etsii kirjaa nimeltä
+    //const book = await collectionName.findOne(query); // etsitään kirja kokoelmasta
 
-    console.log("Kirja " + book + " löydetty"); // tulostetaan löydetty kirja konsoliin
+    //console.log("Kirja " + book + " löydetty"); // tulostetaan löydetty kirja konsoliin
 
 
     // Connect the client to the server	(optional starting in v4.7)
@@ -60,5 +111,5 @@ async function connectDB() {
     // Sulje yhteys, kun et enää tarvitse sitä
     await client.close();
   }
-}
+} */
 module.exports = connectDB;

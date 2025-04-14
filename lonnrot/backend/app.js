@@ -3,8 +3,8 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 //const cors = require('cors');
-const connectDB = require('./backend/db');
-const Book = require('./backend/models/Book');
+const connectDB = require('./db');
+const Book = require('./models/Book');
 
 const app = express();
 connectDB();

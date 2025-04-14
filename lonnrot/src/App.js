@@ -6,7 +6,7 @@ import Home from './pages/Home';
 import Authors from './pages/Authors';
 import Published from './pages/Published';
 import AuthorDetails from './pages/AuthorDetails';
-import { BrowserRouter as Router, Routes, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, /* Switch */ } from 'react-router-dom';
 
 function App() {
   return (
