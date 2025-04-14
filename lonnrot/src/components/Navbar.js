@@ -22,7 +22,6 @@ function Navbar() {
           {isOpen && (
             <div className='dropdown-content'>
               <Link to="/kirjailijat"> Kirjailijan mukaan </Link>
-              <Link to="/valmistuminen"> Valm. vuoden mukaan </Link>
             </div>
           )}
         </div>
