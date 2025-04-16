@@ -15,7 +15,8 @@ const BookSchema = new mongoose.Schema({
 
 // vie kirjan Kirjasto kokoelmaan
 module.exports = mongoose.model('Book', BookSchema, 'Kirjasto'); */
-import mongoose from 'mongoose';
+//import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const BookSchema = new mongoose.Schema({
   title: { type: String, required: true },
@@ -32,4 +33,5 @@ const BookSchema = new mongoose.Schema({
 
 const Book = mongoose.model('Book', BookSchema, 'Kirjasto');
 
-export default Book;
+//export default Book;
+module.exports = Book;

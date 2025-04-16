@@ -1,20 +1,48 @@
 
-import mongoose from 'mongoose';
-//const mongoose = require('mongoose');
+//import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 //const { MongoClient } = require('mongodb');
 
 //uri vaihdettava tietokannan osoitteeseen
 const uri = "mongodb+srv://TestUser:test@kirjastoclusteri.k7xh5ll.mongodb.net/?retryWrites=true&w=majority&appName=KirjastoClusteri"
 
-export async function connectDB() {
-  try {
-    await mongoose.connect(uri, { dbName: "Lonnrot" });
-    console.log('MongoDB connected');
-  } catch (error) {
-    console.error('MongoDB connection error:', error);
-    process.exit(1);
-  }
-}
+
+const connectDB = async () => {
+  let attempts = 0;
+  const maxAttempts = 5;
+  
+  const tryConnect = async () => {
+    try {
+      await mongoose.connect(uri, { dbName: "Lonnrot" });
+      console.log('MongoDB connected');
+    } catch (error) {
+      console.error('MongoDB connection error:', error);
+      attempts += 1;
+      if (attempts < maxAttempts) {
+        console.log(`Retrying connection... (${attempts}/${maxAttempts})`);
+        setTimeout(tryConnect, 5000); // Retry every 5 seconds
+      } else {
+        process.exit(1);
+      }
+    }
+  };
+  
+  tryConnect();
+};
+
+module.exports = connectDB;
+
+// const connectDB = async () => {
+//   try {
+//     await mongoose.connect(uri, { dbName: "Lonnrot" });
+//     console.log('MongoDB connected');
+//   } catch (error) {
+//     console.error('MongoDB connection error:', error);
+//     process.exit(1);
+//   }
+// }
+
+// module.exports = connectDB;
 
 
 /* const connectDB = async () => {
